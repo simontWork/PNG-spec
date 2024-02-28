@@ -3720,11 +3720,19 @@ with these exceptions:
             from <a>full-range images</a> to <a>narrow-range images</a>.  It also describes protected code values used for
             Serial Digital Interface (baseband video) carriage.
           </aside>
+            
           <aside class="note">
             Whilst common practice has seen the storage of full range images using [[ITU-R-BT.709]] transfer function and primaries in
               PNG format, it should be noted that this format is not part of the [[ITU-R-BT.709]] standard.
           </aside>
+            
+          <aside class="note">
+            When the Video Full Range Flag is set to 0, transfer function inputs may be negative.  Therefore, transfer functions should be implemented in such a way as to mirror the transfer function about 0.  Pseudo-code example:
+                <code>out = sign(in) * FUNCTION(abs(in))</code>
+          </aside>
 
+            
+            
           <p>The <span class="chunk">cICP</span> chunk MUST come before the <a class="chunk" href="#11PLTE">PLTE</a> and <a class=
           "chunk" href="#11IDAT">IDAT</a> chunks.</p>
 
